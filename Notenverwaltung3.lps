@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="3">
+      <Unit0>
+        <Filename Value="Notenverwaltung3.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="27"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="hf_notenverwaltung.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="HF_Notenverwaltung"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="db.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="3" Y="273"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit2>
+    </Units>
+    <JumpHistory Count="12" HistoryIndex="11">
+      <Position1>
+        <Filename Value="db.pas"/>
+        <Caret Line="21" Column="18" TopLine="4"/>
+      </Position1>
+      <Position2>
+        <Filename Value="db.pas"/>
+        <Caret Line="25" Column="17" TopLine="9"/>
+      </Position2>
+      <Position3>
+        <Filename Value="db.pas"/>
+        <Caret Line="44" Column="14" TopLine="17"/>
+      </Position3>
+      <Position4>
+        <Filename Value="db.pas"/>
+        <Caret Line="60" Column="19" TopLine="40"/>
+      </Position4>
+      <Position5>
+        <Filename Value="db.pas"/>
+        <Caret Line="64" Column="18" TopLine="52"/>
+      </Position5>
+      <Position6>
+        <Filename Value="db.pas"/>
+        <Caret Line="164" Column="31" TopLine="163"/>
+      </Position6>
+      <Position7>
+        <Filename Value="db.pas"/>
+        <Caret Line="97" Column="9" TopLine="70"/>
+      </Position7>
+      <Position8>
+        <Filename Value="db.pas"/>
+        <Caret Line="55" Column="41" TopLine="46"/>
+      </Position8>
+      <Position9>
+        <Filename Value="db.pas"/>
+        <Caret Line="118" Column="22" TopLine="108"/>
+      </Position9>
+      <Position10>
+        <Filename Value="db.pas"/>
+        <Caret Line="65" Column="11" TopLine="46"/>
+      </Position10>
+      <Position11>
+        <Filename Value="db.pas"/>
+        <Caret Line="248" Column="23"/>
+      </Position11>
+      <Position12>
+        <Filename Value="db.pas"/>
+        <Caret Line="191" Column="51" TopLine="169"/>
+      </Position12>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
