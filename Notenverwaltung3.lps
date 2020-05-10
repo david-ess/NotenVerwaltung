@@ -21,6 +21,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="HF_Notenverwaltung"/>
+        <IsVisibleTab Value="True"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -28,14 +29,13 @@
       <Unit2>
         <Filename Value="db.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <CursorPos X="3" Y="273"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit2>
     </Units>
-    <JumpHistory Count="12" HistoryIndex="11">
+    <JumpHistory Count="13" HistoryIndex="12">
       <Position1>
         <Filename Value="db.pas"/>
         <Caret Line="21" Column="18" TopLine="4"/>
@@ -84,6 +84,9 @@
         <Filename Value="db.pas"/>
         <Caret Line="191" Column="51" TopLine="169"/>
       </Position12>
+      <Position13>
+        <Filename Value="hf_notenverwaltung.pas"/>
+      </Position13>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>
