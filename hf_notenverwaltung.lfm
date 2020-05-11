@@ -54,6 +54,7 @@ object Form1: TForm1
     Top = 176
     Width = 123
     Caption = 'Note löschen'
+    OnClick = Button2Click
     TabOrder = 4
   end
 end

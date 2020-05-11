@@ -19,6 +19,7 @@ type
     Label1: TLabel;
     ListBox1: TListBox;
     SpinEdit1: TSpinEdit;
+    procedure Button2Click(Sender: TObject);
   private
     { private declarations }
   public
@@ -31,6 +32,13 @@ var
 implementation
 
 {$R *.lfm}
+
+{ TForm1 }
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  ShowMessage('Hallo Welt!');
+end;
 
 end.
 
