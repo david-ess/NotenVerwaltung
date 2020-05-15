@@ -1,11 +1,11 @@
 object Form1: TForm1
   Left = 638
-  Height = 271
+  Height = 268
   Top = 331
-  Width = 280
+  Width = 271
   Caption = 'Notenverwaltung'
-  ClientHeight = 271
-  ClientWidth = 280
+  ClientHeight = 268
+  ClientWidth = 271
   Position = poDesktopCenter
   LCLVersion = '1.4.4.0'
   object ComboBox1: TComboBox
@@ -36,25 +36,33 @@ object Form1: TForm1
   object SpinEdit1: TSpinEdit
     Left = 24
     Height = 23
-    Top = 218
+    Top = 224
     Width = 90
     TabOrder = 2
   end
   object Button1: TButton
     Left = 128
     Height = 25
-    Top = 216
+    Top = 224
     Width = 120
     Caption = 'Note hinzufügen'
     TabOrder = 3
   end
   object Button2: TButton
-    Left = 128
+    Left = 144
     Height = 25
     Top = 176
-    Width = 123
+    Width = 104
     Caption = 'Note löschen'
     OnClick = Button2Click
     TabOrder = 4
+  end
+  object Button3: TButton
+    Left = 24
+    Height = 25
+    Top = 176
+    Width = 104
+    Caption = 'Note ändern'
+    TabOrder = 5
   end
 end
