@@ -40,9 +40,10 @@ type
       id: byte;       // ID des Faches (wird automatisch vergeben)
       name: String;   // Name des Faches
     public
+      noten: pTNoteArray;
       function getName: String;
       procedure setName(_Name: String);
-      function getNoten: pTNoteArray;
+      procedure updateNotenListe;
   end;
 
   TNoteArray = Array of TNote;
@@ -65,6 +66,10 @@ type
       procedure frei;                            // Zerstören des Datenbankobjekts
       function getFachId(_name: String): byte;   // gibt die ID des angefragten Faches aus
   end;
+
+
+Var Datenbank: TDatenbank;
+
 
 implementation
 
@@ -268,9 +273,19 @@ begin
   self.name:=_Name;
 end;
 
-function TFach.getNoten: pTNoteArray;
+procedure TFach.updateNotenListe;
+Var i: Integer;
 begin
-
+  // Alle Noten durchgehen und Zeiger auf die speichern, welche zum Fach gehören
+  for i:=0 to length(Datenbank.noten)-1 do
+    begin
+      SetLength(noten, 0);
+      if Datenbank.noten[i].fachId = self.id then
+        begin
+          SetLength(noten, length(noten)+1);
+          noten[length(noten)-1] := @Datenbank.noten[i];
+        end;
+    end;
 end;
 
 { TNote }
