@@ -195,8 +195,8 @@ begin
       // Stream erzeugen
       stream := TFileStream.Create(pfad, fmOpenRead);
       // Header lesen
-      stream.ReadWord(anzFaecher2);
-      stream.ReadWord(anzNoten2);
+      anzFaecher2 := stream.ReadWord;
+      anzNoten2 := stream.ReadWord;
       anzFaecher := anzFaecher2;
       anzNoten := anzNoten2;
       // Fächer hinzufügen
@@ -224,14 +224,17 @@ end;
 procedure TDatenbank.speichern(pfad: String);
 Var i: Integer;
     stream: TFileStream;
+    anzNoten, anzFaecher: word;
 begin
   // Stream erzeugen
   if fileExists(pfad)
   then stream := TFileStream.Create(pfad, fmOpenReadWrite)
   else stream := TFileStream.Create(pfad, fmCreate);
   // Header schreiben
-  stream.WriteWord(length(faecher));
-  stream.WriteWord(length(noten));
+  anzFaecher := length(faecher);
+  anzNoten := length(noten);
+  stream.WriteWord(anzFaecher);
+  stream.WriteWord(anzNoten);
   // Fächer schreiben
   For i:=0 to length(faecher)-1 do
     begin
