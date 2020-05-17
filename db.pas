@@ -68,7 +68,7 @@ type
   end;
 
 
-Var Datenbank: TDatenbank;
+// ---------------------------------------------------------------------- //
 
 
 implementation
@@ -189,30 +189,33 @@ Var i, anzNoten, anzFaecher: Integer;
     fachId: byte;
     name: String;
 begin
-  // Stream erzeugen
-  stream := TFileStream.Create(pfad, fmOpenRead);
-  // Header lesen
-  anzFaecher:=stream.ReadWord;
-  anzNoten:=stream.ReadWord;
-  // Fächer hinzufügen
-  For i:=0 to anzFaecher-1 do
+  if FileExists(pfad) then
     begin
-      stream.ReadBuffer(id, SizeOf(byte));
-      stream.ReadBuffer(name, SizeOf(String[20]));
-      self.fachHinzu(name,id);
+      // Stream erzeugen
+      stream := TFileStream.Create(pfad, fmOpenRead);
+      // Header lesen
+      anzFaecher:=stream.ReadWord;
+      anzNoten:=stream.ReadWord;
+      // Fächer hinzufügen
+      For i:=0 to anzFaecher-1 do
+        begin
+          stream.ReadBuffer(id, SizeOf(byte));
+          stream.ReadBuffer(name, SizeOf(String[20]));
+          self.fachHinzu(name,id);
+        end;
+      // Noten hinzufügen
+      For i:=0 to anzNoten-1 do
+        begin
+          stream.ReadBuffer(id, SizeOf(word));
+          stream.ReadBuffer(wert, SizeOf(byte));
+          stream.ReadBuffer(ka, SizeOf(boolean));
+          stream.ReadBuffer(datum, SizeOf(TDateTime));
+          stream.ReadBuffer(fachId, SizeOf(byte));
+          self.noteHinzu(wert, ka, datum, fachId, id);
+        end;
+      // Stream freigeben
+      stream.free;
     end;
-  // Noten hinzufügen
-  For i:=0 to anzNoten-1 do
-    begin
-      stream.ReadBuffer(id, SizeOf(word));
-      stream.ReadBuffer(wert, SizeOf(byte));
-      stream.ReadBuffer(ka, SizeOf(boolean));
-      stream.ReadBuffer(datum, SizeOf(TDateTime));
-      stream.ReadBuffer(fachId, SizeOf(byte));
-      self.noteHinzu(wert, ka, datum, fachId, id);
-    end;
-  // Stream freigeben
-  stream.free;
 end;
 
 procedure TDatenbank.speichern(pfad: String);

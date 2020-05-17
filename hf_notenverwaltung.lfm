@@ -1,10 +1,10 @@
 object Form1: TForm1
-  Left = 470
-  Height = 268
-  Top = 343
+  Left = 359
+  Height = 337
+  Top = 335
   Width = 271
   Caption = 'Notenverwaltung'
-  ClientHeight = 268
+  ClientHeight = 337
   ClientWidth = 271
   OnClose = FormClose
   OnShow = FormShow
@@ -17,6 +17,8 @@ object Form1: TForm1
     Width = 224
     ItemHeight = 15
     OnEnter = ComboBox1Enter
+    OnKeyPress = ComboBox1KeyPress
+    OnSelect = ComboBox1Select
     TabOrder = 0
     Text = 'Fach wählen'
   end
@@ -40,19 +42,20 @@ object Form1: TForm1
     Left = 24
     Height = 23
     Top = 224
-    Width = 90
+    Width = 56
     TabOrder = 2
   end
   object Button1: TButton
-    Left = 128
+    Left = 24
     Height = 25
-    Top = 224
-    Width = 120
-    Caption = 'Note hinzufügen'
+    Top = 288
+    Width = 224
+    Caption = 'Note hinzufügen / ändern'
+    OnClick = Button1Click
     TabOrder = 3
   end
   object Button2: TButton
-    Left = 144
+    Left = 24
     Height = 25
     Top = 176
     Width = 104
@@ -60,12 +63,29 @@ object Form1: TForm1
     OnClick = Button2Click
     TabOrder = 4
   end
-  object Button3: TButton
-    Left = 24
+  object Button4: TButton
+    Left = 144
     Height = 25
     Top = 176
     Width = 104
-    Caption = 'Note ändern'
+    Caption = 'Fach löschen'
+    OnClick = Button4Click
     TabOrder = 5
+  end
+  object CheckBox1: TCheckBox
+    Left = 175
+    Height = 19
+    Top = 224
+    Width = 73
+    Caption = 'Kursarbeit'
+    TabOrder = 6
+  end
+  object Edit1: TEdit
+    Left = 96
+    Height = 23
+    Top = 224
+    Width = 64
+    TabOrder = 7
+    Text = 'Datum'
   end
 end
