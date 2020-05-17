@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, datetimectrls, HF_Notenverwaltung, db
+  Forms, HF_Notenverwaltung, db
   { you can add units after this };
 
 {$R *.res}

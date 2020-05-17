@@ -5,8 +5,7 @@ unit HF_Notenverwaltung;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
-  Dialogs, StdCtrls, Spin, db;
+  SysUtils, Forms, Dialogs, StdCtrls, Spin, db;
 
 type
 
@@ -30,6 +29,7 @@ type
     procedure ComboBox1Select(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure ListBox1SelectionChange(Sender: TObject; User: boolean);
   private
     { private declarations }
   public
@@ -51,7 +51,7 @@ procedure TForm1.Button2Click(Sender: TObject); // Note löschen
 begin
   if ListBox1.ItemIndex >= 0 then
     begin
-      Datenbank.noteLoeschen(Datenbank.fachNoten[ListBox1.ItemIndex]^.getId;);
+      Datenbank.noteLoeschen(Datenbank.fachNoten[ListBox1.ItemIndex]^.getId);
       ListBox1.Items.Delete(ListBox1.ItemIndex);
     end
   else ShowMessage('Bitte die zu löschende Note markieren!');
@@ -130,6 +130,14 @@ begin
   Datenbank:=TDatenbank.Create;
   Datenbank.init;
   Datenbank.laden(datenbankPfad);
+  Edit1.Text:=DateToStr(now);
+end;
+
+procedure TForm1.ListBox1SelectionChange(Sender: TObject; User: boolean);  // Felder mit Daten füllen
+begin
+  SpinEdit1.Value := Datenbank.fachNoten[ListBox1.ItemIndex]^.getWert;
+  Edit1.Text := DateToStr(Datenbank.fachNoten[ListBox1.ItemIndex]^.getDatum);
+  CheckBox1.Checked := Datenbank.fachNoten[ListBox1.ItemIndex]^.getKA;
 end;
 
 end.

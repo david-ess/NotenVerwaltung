@@ -1,10 +1,10 @@
 object Form1: TForm1
   Left = 359
-  Height = 337
+  Height = 297
   Top = 335
   Width = 271
   Caption = 'Notenverwaltung'
-  ClientHeight = 337
+  ClientHeight = 297
   ClientWidth = 271
   OnClose = FormClose
   OnShow = FormShow
@@ -28,6 +28,7 @@ object Form1: TForm1
     Top = 72
     Width = 224
     ItemHeight = 0
+    OnSelectionChange = ListBox1SelectionChange
     TabOrder = 1
   end
   object Label1: TLabel
@@ -48,7 +49,7 @@ object Form1: TForm1
   object Button1: TButton
     Left = 24
     Height = 25
-    Top = 288
+    Top = 256
     Width = 224
     Caption = 'Note hinzufügen / ändern'
     OnClick = Button1Click

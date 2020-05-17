@@ -37,8 +37,8 @@ type
 
   TFach = class
     private
-      id: byte;       // ID des Faches (wird automatisch vergeben)
-      name: String;   // Name des Faches
+      id: byte;           // ID des Faches (wird automatisch vergeben)
+      name: String[20];   // Name des Faches
     public
       function getName: String;
       procedure setName(_Name: String);
@@ -180,37 +180,38 @@ begin
 end;
 
 procedure TDatenbank.laden(pfad: String);
-Var i, anzNoten, anzFaecher: Integer;
+Var i, anzNoten, anzFaecher: integer;
+    anzNoten2, anzFaecher2: word;
     stream: TFileStream;
     id: word;
     wert: byte;
     ka: boolean;
     datum: TDateTime;
     fachId: byte;
-    name: String;
+    name: String[20];
 begin
   if FileExists(pfad) then
     begin
       // Stream erzeugen
       stream := TFileStream.Create(pfad, fmOpenRead);
       // Header lesen
-      anzFaecher:=stream.ReadWord;
-      anzNoten:=stream.ReadWord;
+      stream.ReadBuffer(anzFaecher, SizeOf(integer));
+      stream.ReadBuffer(anzNoten, SizeOf(integer));
       // Fächer hinzufügen
       For i:=0 to anzFaecher-1 do
         begin
-          stream.ReadBuffer(id, SizeOf(byte));
-          stream.ReadBuffer(name, SizeOf(String[20]));
+          stream.ReadBuffer(id, SizeOf(id));
+          stream.ReadBuffer(name, SizeOf(name));
           self.fachHinzu(name,id);
         end;
       // Noten hinzufügen
       For i:=0 to anzNoten-1 do
         begin
-          stream.ReadBuffer(id, SizeOf(word));
-          stream.ReadBuffer(wert, SizeOf(byte));
-          stream.ReadBuffer(ka, SizeOf(boolean));
-          stream.ReadBuffer(datum, SizeOf(TDateTime));
-          stream.ReadBuffer(fachId, SizeOf(byte));
+          stream.ReadBuffer(id, SizeOf(id));
+          stream.ReadBuffer(wert, SizeOf(wert));
+          stream.ReadBuffer(ka, SizeOf(ka));
+          stream.ReadBuffer(datum, SizeOf(datum));
+          stream.ReadBuffer(fachId, SizeOf(fachId));
           self.noteHinzu(wert, ka, datum, fachId, id);
         end;
       // Stream freigeben
@@ -227,22 +228,22 @@ begin
   then stream := TFileStream.Create(pfad, fmOpenReadWrite)
   else stream := TFileStream.Create(pfad, fmCreate);
   // Header schreiben
-  stream.WriteWord(length(faecher));
-  stream.WriteWord(length(noten));
+  stream.WriteBuffer(length(faecher), SizeOf(integer));
+  stream.WriteBuffer(length(noten), SizeOf(integer));
   // Fächer schreiben
   For i:=0 to length(faecher)-1 do
     begin
-      stream.WriteBuffer(faecher[i].id, SizeOf(byte));
-      stream.WriteBuffer(faecher[i].name, SizeOf(String[20]));
+      stream.WriteBuffer(faecher[i].id, SizeOf(faecher[i].id));
+      stream.WriteBuffer(faecher[i].name, SizeOf(faecher[i].name));
     end;
   // Noten schreiben
   For i:=0 to length(noten)-1 do
     begin
-      stream.WriteBuffer(noten[i].id, SizeOf(word));
-      stream.WriteBuffer(noten[i].wert, SizeOf(byte));
-      stream.WriteBuffer(noten[i].ka, SizeOf(boolean));
-      stream.WriteBuffer(noten[i].datum, SizeOf(TDateTime));
-      stream.WriteBuffer(noten[i].fachId, SizeOf(byte));
+      stream.WriteBuffer(noten[i].id, SizeOf(noten[i].id));
+      stream.WriteBuffer(noten[i].wert, SizeOf(noten[i].wert));
+      stream.WriteBuffer(noten[i].ka, SizeOf(noten[i].ka));
+      stream.WriteBuffer(noten[i].datum, SizeOf(noten[i].datum));
+      stream.WriteBuffer(noten[i].fachId, SizeOf(noten[i].fachId));
     end;
   // Stream freigeben
   stream.free;
