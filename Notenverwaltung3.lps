@@ -12,7 +12,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="37"/>
       </Unit0>
       <Unit1>
         <Filename Value="hf_notenverwaltung.pas"/>
@@ -21,8 +21,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="HF_Notenverwaltung"/>
-        <CursorPos X="30" Y="41"/>
-        <UsageCount Value="32"/>
+        <TopLine Value="36"/>
+        <CursorPos X="21" Y="62"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -31,13 +32,13 @@
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="267"/>
-        <CursorPos X="38" Y="286"/>
-        <UsageCount Value="32"/>
+        <TopLine Value="118"/>
+        <CursorPos X="54" Y="144"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
       </Unit2>
     </Units>
-    <JumpHistory Count="17" HistoryIndex="16">
+    <JumpHistory Count="21" HistoryIndex="20">
       <Position1>
         <Filename Value="db.pas"/>
         <Caret Line="21" Column="18" TopLine="4"/>
@@ -105,6 +106,22 @@
         <Filename Value="db.pas"/>
         <Caret Line="286" Column="37" TopLine="258"/>
       </Position17>
+      <Position18>
+        <Filename Value="hf_notenverwaltung.pas"/>
+        <Caret Line="42" Column="30" TopLine="4"/>
+      </Position18>
+      <Position19>
+        <Filename Value="hf_notenverwaltung.pas"/>
+        <Caret Line="48" Column="3" TopLine="13"/>
+      </Position19>
+      <Position20>
+        <Filename Value="hf_notenverwaltung.pas"/>
+        <Caret Line="60" Column="25" TopLine="22"/>
+      </Position20>
+      <Position21>
+        <Filename Value="hf_notenverwaltung.pas"/>
+        <Caret Line="49" Column="54" TopLine="26"/>
+      </Position21>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

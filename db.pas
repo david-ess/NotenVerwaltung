@@ -141,6 +141,7 @@ begin
       else noten[ind].id := noten[ind-1].id+1;
     end
   else noten[ind].id:=_id;
+  // Zeiger auf Note in entsprechendes Fach eintragen
 end;
 
 procedure TDatenbank.noteLoeschen(_id: word);
