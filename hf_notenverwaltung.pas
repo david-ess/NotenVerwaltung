@@ -59,7 +59,6 @@ end;
 
 procedure TForm1.Button1Click(Sender: TObject); // Note hinzufügen oder ändern
 begin
-  // Feststellen welche Note markiert wurde
   if ListBox1.ItemIndex = -1 then // Note hinzufügen
     begin
       Datenbank.noteHinzu(SpinEdit1.Value, CheckBox1.Checked, StrToDate(Edit1.Text), Datenbank.getFachId(ComboBox1.Text));
@@ -71,6 +70,7 @@ begin
       Datenbank.fachNoten[ListBox1.ItemIndex]^.setDatum(StrToDate(Edit1.Text));
       Datenbank.fachNoten[ListBox1.ItemIndex]^.setFach(Datenbank.getFachId(ComboBox1.Text));
     end;
+  ComboBox1Select(self);
 end;
 
 procedure TForm1.Button4Click(Sender: TObject);  // Fach löschen
@@ -78,6 +78,7 @@ begin
   if ComboBox1.Text <> 'Fach wählen' then
     begin
       Datenbank.fachLoeschen(ComboBox1.Text);
+      ComboBox1Enter(self);
     end;
 end;
 
