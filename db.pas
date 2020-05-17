@@ -40,10 +40,8 @@ type
       id: byte;       // ID des Faches (wird automatisch vergeben)
       name: String;   // Name des Faches
     public
-      noten: pTNoteArray;
       function getName: String;
       procedure setName(_Name: String);
-      procedure updateNotenListe;
   end;
 
   TNoteArray = Array of TNote;
@@ -56,6 +54,8 @@ type
       noten: TNoteArray;
     public
       faecher: TFachArray;
+      fachNoten: pTNoteArray;
+      procedure ladeFachNoten(FachId: byte);
       function fachHinzu(_Name: String; _id: byte = 0): boolean;
       procedure fachLoeschen(_Name: String);
       procedure noteHinzu(_wert: byte; _ka: boolean; _datum: TDateTime; _fach: byte; _id: word = 0);
@@ -74,6 +74,22 @@ Var Datenbank: TDatenbank;
 implementation
 
 { TDatenbank }
+
+procedure TDatenbank.ladeFachNoten(FachId: byte);
+Var i: integer;
+begin
+  // Array leeren
+  SetLength(fachNoten, 0);
+  // Alle Noten durchgehen und ggf. Zeiger auf Note speichern
+  for i:=0 to length(noten)-1 do
+    begin
+      if noten[i].fachId = FachId then
+        begin
+          SetLength(fachNoten, length(fachNoten)+1);
+          fachNoten[length(fachNoten)-1] := @noten[i];
+        end;
+    end;
+end;
 
 function TDatenbank.fachHinzu(_Name: String; _id: byte = 0): boolean;
 Var i, ind: integer;
@@ -141,7 +157,6 @@ begin
       else noten[ind].id := noten[ind-1].id+1;
     end
   else noten[ind].id:=_id;
-  // Zeiger auf Note in entsprechendes Fach eintragen
 end;
 
 procedure TDatenbank.noteLoeschen(_id: word);
@@ -272,21 +287,6 @@ end;
 procedure TFach.setName(_Name: String);
 begin
   self.name:=_Name;
-end;
-
-procedure TFach.updateNotenListe;
-Var i: Integer;
-begin
-  // Alle Noten durchgehen und Zeiger auf die speichern, welche zum Fach gehören
-  for i:=0 to length(Datenbank.noten)-1 do
-    begin
-      SetLength(noten, 0);
-      if Datenbank.noten[i].fachId = self.id then
-        begin
-          SetLength(noten, length(noten)+1);
-          noten[length(noten)-1] := @Datenbank.noten[i];
-        end;
-    end;
 end;
 
 { TNote }
