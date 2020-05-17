@@ -195,8 +195,10 @@ begin
       // Stream erzeugen
       stream := TFileStream.Create(pfad, fmOpenRead);
       // Header lesen
-      stream.ReadBuffer(anzFaecher, SizeOf(integer));
-      stream.ReadBuffer(anzNoten, SizeOf(integer));
+      stream.ReadWord(anzFaecher2);
+      stream.ReadWord(anzNoten2);
+      anzFaecher := anzFaecher2;
+      anzNoten := anzNoten2;
       // Fächer hinzufügen
       For i:=0 to anzFaecher-1 do
         begin
@@ -228,8 +230,8 @@ begin
   then stream := TFileStream.Create(pfad, fmOpenReadWrite)
   else stream := TFileStream.Create(pfad, fmCreate);
   // Header schreiben
-  stream.WriteBuffer(length(faecher), SizeOf(integer));
-  stream.WriteBuffer(length(noten), SizeOf(integer));
+  stream.WriteWord(length(faecher));
+  stream.WriteWord(length(noten));
   // Fächer schreiben
   For i:=0 to length(faecher)-1 do
     begin

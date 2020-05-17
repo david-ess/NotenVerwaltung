@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
         <CursorPos X="8" Y="10"/>
-        <UsageCount Value="142"/>
+        <UsageCount Value="144"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -22,7 +22,7 @@
         <UnitName Value="HF_Notenverwaltung"/>
         <TopLine Value="109"/>
         <CursorPos X="30" Y="133"/>
-        <UsageCount Value="142"/>
+        <UsageCount Value="144"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -31,9 +31,9 @@
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="187"/>
-        <CursorPos X="52" Y="199"/>
-        <UsageCount Value="142"/>
+        <TopLine Value="180"/>
+        <CursorPos X="29" Y="201"/>
+        <UsageCount Value="144"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
